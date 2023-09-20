@@ -6,34 +6,15 @@ const person = {
 };
 
 // Write your code here, make sure the name of variables is exactly same as mentioned in the problem statement
-// Create a reference to the players array
-const team = players;
+/ Create a copy of the players array using Array.from()
+const team1 = Array.from(players);
 
-// Create a copy of the players array
-const team1 = [...players];
+// Create a copy of the person object using Object.assign()
+const cap1 = Object.assign({}, person);
 
-// Create a copy of the person object
-const cap1 = { ...person };
+// Test if changes to players or person affect team1 or cap1
+players.push("Sarah");
+person.name = "Jane Smith";
 
-window.players = players;
-window.person = person;
-window.team = team;
-window.team1 = team1;
-window.cap1 = cap1;
-
-// You can test the modifications
-team.push("Mike");  // This will also modify the original players array since team is a reference
-
-team1.push("Jane"); // This will not modify the original players array
-
-cap1.name = "Jane Smith"; // This will not modify the original person object
-
-console.log(team);
-console.log(team1);
-console.log(cap1);
-
-
-
-
-
-
+console.log(team1); // It's a copy, so it won't include "Sarah"
+console.log(cap1);  // It's a copy, so it won't reflect the name change
